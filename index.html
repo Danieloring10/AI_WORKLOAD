@@ -1,0 +1,57 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resume Builder</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1 id="main-title">Resume Builder</h1>
+</header>
+
+<main>
+  <section aria-labelledby="upload-label">
+    <form id="upload-form" role="form" aria-describedby="upload-desc">
+      <label id="upload-label" for="json-file">Upload Resume JSON file:</label>
+      <input type="file" id="json-file" accept="application/json" aria-describedby="upload-desc" />
+      <p id="upload-desc" class="sr-only">Select a JSON file containing your resume details to load.</p>
+    </form>
+  </section>
+
+  <section aria-labelledby="form-label" role="form">
+    <form id="resume-form" aria-describedby="form-desc">
+      <h2 id="form-label" class="sr-only">Resume Details Form</h2>
+      <p id="form-desc" class="sr-only">Fill in your resume details below including name, education, projects, and skills.</p>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" />
+
+      <label for="education">Education:</label>
+      <textarea id="education" name="education" placeholder="List your education" rows="4" aria-multiline="true"></textarea>
+
+      <label for="projects">Projects:</label>
+      <textarea id="projects" name="projects" placeholder="Describe your projects" rows="4" aria-multiline="true"></textarea>
+
+      <label for="skills">Skills:</label>
+      <textarea id="skills" name="skills" placeholder="List your skills" rows="3" aria-multiline="true"></textarea>
+    </form>
+  </section>
+
+  <section class="buttons" role="region" aria-label="Action buttons for resume generation and download">
+    <button id="generate-btn" type="button" aria-controls="resume-preview" aria-describedby="generate-desc">Generate Resume</button>
+    <p id="generate-desc" class="sr-only">Click to generate resume preview below</p>
+    <button id="download-pdf-btn" type="button" aria-disabled="true" disabled>Download PDF</button>
+  </section>
+
+  <section id="resume-preview" role="region" aria-live="polite" aria-label="Generated resume preview" hidden></section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js" type="module"></script>
+<script src="pdfGenerator.js" type="module"></script>
+</body>
+</html>
+```
